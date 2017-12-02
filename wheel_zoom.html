@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js">
+</script>
+<style>
+img {
+  cursor: -webkit-zoom-in; 
+  cursor: -moz-zoom-in;
+}
+</style>
+</head>
+<body>
+<div>
+Use Mouse Wheel Scroll to Zoom In and Zoom Out
+</div>
+
+<img src="https://firebasestorage.googleapis.com/v0/b/portfoleoni.appspot.com/o/RepublicBank_mug.gif?alt=media&token=3ca3ad77-9049-4817-a263-a6925425e92a" ng-init="zoomWidth = 100;imgStyle = {width:'100px'}" ng-style="imgStyle" 
+ng-mouse-wheel-up="zoomWidth = zoomWidth + 20; imgStyle.width = zoomWidth +'px'; "  
+ng-mouse-wheel-down="zoomWidth = zoomWidth - 20;imgStyle.width = zoomWidth  +'px'; "/>
+
+</div>
+<script>
+var myApp = angular.module('myApp', []);
+
+
+myApp.directive('ngMouseWheelUp', function() {
+        return function(scope, element, attrs) {
+            element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
+                   
+            	        // cross-browser wheel delta
+            	        var event = window.event || event; // old IE support
+            	        var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+            	
+            	        if(delta > 0) {
+                            scope.$apply(function(){
+                                scope.$eval(attrs.ngMouseWheelUp);
+                            });
+                        
+                          // for IE
+                          event.returnValue = false;
+                          // for Chrome and Firefox
+                          if(event.preventDefault) event.preventDefault();                        
+                       }
+            });
+        };
+});
+
+
+myApp.directive('ngMouseWheelDown', function() {
+        return function(scope, element, attrs) {
+            element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
+                   
+            	        // cross-browser wheel delta
+            	        var event = window.event || event; // old IE support
+            	        var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+            	
+            	        if(delta < 0) {
+                            scope.$apply(function(){
+                                scope.$eval(attrs.ngMouseWheelDown);
+                            });
+
+                          // for IE
+                          event.returnValue = false;
+                          // for Chrome and Firefox
+                          if(event.preventDefault) event.preventDefault();                        
+                       }
+            });
+        };
+});
+
+</script>
+</body>
+</html>

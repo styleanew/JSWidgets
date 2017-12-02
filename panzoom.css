@@ -1,0 +1,62 @@
+.panzoomwidget {
+    width: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+.panzoomwidget .zoom-button {
+    text-align: center;
+    height: 26px;
+    width: 26px;
+    background-color: rgba(148, 114, 0, 0.18);
+    cursor: hand;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.panzoomwidget .zoom-button:hover {
+    background-color: #ccc; 
+}
+
+.panzoomwidget .zoom-level {
+    width: 100%;    
+    margin-left: 10px;
+}
+
+.panzoomwidget .zoom-slider {
+    position: relative;
+    cursor: hand;   
+    margin-left: 4px;
+}
+
+.panzoomwidget .zoom-slider-widget {
+    position: absolute;
+    width: 16px;
+    background-color: rgba(10, 56, 43, 0.22);
+    border: 1px solid black;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.plus {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/portfoleoni.appspot.com/o/plus_sign.jpg?alt=media&token=081cdae4-e56b-402b-8409-7137b7af8e6f");
+    background-blend-mode:overlay;
+    background-position:center;
+    background-size: contain;
+}
+
+.minus {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/portfoleoni.appspot.com/o/minus_sign.jpg?alt=media&token=5da5e712-42f3-4813-883d-f92d1bde207c");
+    background-blend-mode:overlay;
+    background-position:center;
+    background-size: contain;
+}

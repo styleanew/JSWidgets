@@ -1,0 +1,31 @@
+<html >
+
+    <head>
+        <link href="panzoom.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hamsterjs/1.1.2/hamster.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-mousewheel/1.0.5/mousewheel.min.js"></script>
+
+        <script src="ngpanzoom.js"></script>
+        <style type="text/css">
+            .pan-zoom-frame {
+                border: 2px solid rgba(148, 114, 0, 0.62);
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+
+    <body ng-app="closelook" ng-controller="zoomController">
+        <div style="position:relative">
+            <panzoomwidget panzoom-id="PanZoom" style="position:absolute;top:60%;left:20px;z-index:1"></panzoomwidget>
+            <panzoom id="PanZoom" config="panzoomConfig" model="panzoomModel" style="width:400px; height: 340px">
+                <img src="https://firebasestorage.googleapis.com/v0/b/portfoleoni.appspot.com/o/RepublicBank_mug.gif?alt=media&token=3ca3ad77-9049-4817-a263-a6925425e92a" style="position:absolute" />
+            </panzoom>
+        </div>
+
+    </body>
+
+
+
+</html>
