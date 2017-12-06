@@ -25,19 +25,34 @@
         </div>
 
         <script>
-            let widthAtSwitch = 0;
-            
+            let widthAtSwitch = 300;
+            let newHeight = document.getElementById("detailsInfo").clientHeight;
+            let maindiv = document.getElementById("detailsMain");
+            let mainHeight = document.getElementById("detailsMain").clientHeight;
+
+            if (newHeight >= (mainHeight)) {
+                let drops = document.getElementsByClassName("drop");
+                drops[0].style.position = "relative";
+
+                let dws = document.getElementsByClassName("dw");
+                let detmain = document.getElementById("detailsMain");
+
+                detmain.style.columnCount = 1;
+
+                widthAtSwitch = maindiv.clientWidth;
+            }            
+
             window.addEventListener("resize", OverflowResponse);
 
             function OverflowResponse() {
-                let newHeight = document.getElementById("detailsInfo").clientHeight;
-                let maindiv = document.getElementById("detailsMain");
-                let mainHeight = document.getElementById("detailsMain").clientHeight;
+                newHeight = document.getElementById("detailsInfo").clientHeight;
+                maindiv = document.getElementById("detailsMain");
+                mainHeight = document.getElementById("detailsMain").clientHeight;
 
                 if (newHeight >= (mainHeight)) {
                     let drops = document.getElementsByClassName("drop");
                     drops[0].style.position = "relative";
-                    
+
                     let dws = document.getElementsByClassName("dw");
                     let detmain = document.getElementById("detailsMain");
 
@@ -48,7 +63,7 @@
                 else if (maindiv.clientWidth > widthAtSwitch) {
                     let drops = document.getElementsByClassName("drop");
                     drops[0].style.position = "absolute";
-                    
+
                     let detmain = document.getElementById("detailsMain");                
                     detmain.style.columnCount = 2;
                 }
