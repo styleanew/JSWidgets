@@ -1,29 +1,58 @@
 
 <html >
-
     <head>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="masonry2.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-mousewheel/1.0.5/mousewheel.min.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
     </head>
     <body class="bg--blue">        
-        <div class="dw">
+        <div id="detailsMain" class="dw">
 
             <div class="dw-pnl">                                     
                 <img src="https://unsplash.it/419/?random" class="dw-pnl__cntnt"/>               
             </div>
 
-            <div class="dw-pnl">
-            
-                
-                <div class="dw-pnl__cntnt_txt bd--white tx--white drop">
+            <div id="resizewatch" class="dw-pnl" style="resize: both;">
+
+                <div id="detailsInfo" class="dw-pnl__cntnt_txt bd--white tx--white drop">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend. Pellentesque lorem elit, dignissim interdum massa id, malesuada rutrum ligula. Suspendisse tempor quis mauris eu facilisis. Phasellus non volutpat diam, non dapibus ligula. Ut non molestie ex, nec sagittis mi. Curabitur suscipit tellus id dolor pretium blandit. Cras tristique tristique pharetra.</p>
                 </div>
-                
+
             </div>
         </div>
+
+        <script>
+            let widthAtSwitch = 0;
+            
+            window.addEventListener("resize", OverflowResponse);
+
+            function OverflowResponse() {
+                let newHeight = document.getElementById("detailsInfo").clientHeight;
+                let maindiv = document.getElementById("detailsMain");
+                let mainHeight = document.getElementById("detailsMain").clientHeight;
+
+                if (newHeight >= (mainHeight)) {
+                    let drops = document.getElementsByClassName("drop");
+                    drops[0].style.position = "relative";
+                    
+                    let dws = document.getElementsByClassName("dw");
+                    let detmain = document.getElementById("detailsMain");
+
+                    detmain.style.columnCount = 1;
+
+                    widthAtSwitch = maindiv.clientWidth;
+                }
+                else if (maindiv.clientWidth > widthAtSwitch) {
+                    let drops = document.getElementsByClassName("drop");
+                    drops[0].style.position = "absolute";
+                    
+                    let detmain = document.getElementById("detailsMain");                
+                    detmain.style.columnCount = 2;
+                }
+            }
+        </script>
     </body>
 </html>

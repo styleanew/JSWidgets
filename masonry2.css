@@ -1,6 +1,9 @@
 .dw {
   -webkit-animation: fade 2s;
           animation: fade 2s;
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
 }
 .dw {
   box-sizing: border-box;
@@ -23,14 +26,13 @@
   top: 0;
   z-index: 2;
 }
-@media (min-width: 530px) {
-  .dw {
+@media (min-width: 430px) {
+  .dwsssssssssss {
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
   }
 }
-
 
 .dw-pnl {
   margin: 0;
@@ -44,15 +46,14 @@
 	bottom: 0;
 }
 
-@media (max-width: 530px) {
-  .drop {
+@media (max-width: 430px) {
+  .dropssss {
 	height: 80%;
 	position: relative;
 	
 	bottom: 0;
     }
 }
-
 
 .dw-pnl--fcs {
   position: relative;
